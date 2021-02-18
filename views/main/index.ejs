@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="main/style.css">    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    
+    <title>main</title>
+</head>
+<body>
+    <div class="container">
+
+        <%- include('../top_container1'); %> 
+    
+        <div class="middle-container">
+            <div class="dest">
+                <div class="left-dest">                    
+
+                    <div class="main-img-wrapper">
+                        
+                        <a href="article/<%= article[0].id %> "><img src="<%= article[0].image %>" alt="logo" width="640" height="310"></a>
+
+                    </div>
+                    
+                    <div class="main-article-text">
+                        <a href="article/<%= article[0].id %> ">                            
+                            <h1> <%= article[0].title%>  </h1>                            
+                        </a>
+                        <p><%= article[0].description%></p>
+                    </div>
+
+                </div>
+    
+                <div class="bar"></div>
+
+                <div class="right-dest">
+                    <% for (var i = 1;i<article.length;i++) { %>
+                        <div class="mini-article">
+                            <div class="mini-img-wrapper">
+                                <a href="article/<%= article[i].id %> "><img src="<%= article[i].image%>" alt="logo" width="80" height="100"></a>
+                            </div>
+
+                            <div class="mini-article-text">
+                                <a href="article/<%= article[i].id %>">
+                                    <h4><%=article[i].title%></h4>
+                                </a>
+
+                                <p><%=article[i].description%> </p>
+                            </div>
+                        </div>
+                        
+                        <div class="hor-bar"></div>
+                        
+                    <%}%>
+                </div>                    
+
+            </div>        
+        </div>
+    </div>
+    
+    <script>
+        let cont = new Number(2);
+        var div = document.querySelector('.right-dest');        
+        div.onscroll = () => {
+            var winScroll = div.scrollTop;
+            var height = div.scrollHeight - div.clientHeight;
+            var scrolled = (winScroll / height) * 100;
+            if(scrolled == 100){
+
+                fetch(`/${cont}`).then(res => res.text())
+                .then(text => {
+                    let html = text;
+                    let newHtml = div.innerHTML;
+    
+                    newHtml+=html;                
+                    
+                    div.innerHTML = newHtml;                    
+                    cont++;
+                });
+                
+            }
+        };
+
+    </script>
+
+
+</body>
+</html>

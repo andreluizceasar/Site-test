@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/new/style.css">    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    
+    <title>new</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('../top_container2') %> 
+
+        <div class="middle-container">
+            
+            <form action="/article" method="POST">
+
+                <div class="form">
+                    <label for="title">Title</label> 
+                    <input required type="text" name="title" id="title" class="input">    
+                </div>
+        
+                <div class="form">
+                    <label for="description">Description</label> 
+                    <textarea name="description" id="description" class="input"></textarea>
+                </div>
+        
+                <div class="form">
+                    <label for="content">Content</label> 
+                    <textarea name="content" id="content" class="input"> </textarea>
+                </div>
+                
+                <div class="form">
+                    <label for="image">Image</label> 
+                    <input name="image" id="image" class="input"> </input>
+                </div>
+
+                <a href="/">Cancel</a>
+                <button type="submit" class="btn">Save</button>
+            </form>
+
+        </div>
+    </div>
+
+</body>
+</html>

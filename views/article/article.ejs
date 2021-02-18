@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/article/style.css">    
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    
+    <title>article</title>
+</head>
+<body>
+    <div class="container">
+        <%- include('../top_container2') %> 
+
+
+        <div class="middle-container">
+            <div class="img-wrapper">
+                <img src="<%= article.image %>" alt="logo" width="640" height="310">
+            </div>
+
+            <div class="article-text">
+                
+                <div class="up-text">
+                    <h1> <%= article.title%>  </h1> 
+                    <p><%= article.description%></p>                                           
+                </div>
+
+                <div class="down-text">
+                    <p><%= article.content %> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+</body>
+</html>

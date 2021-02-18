@@ -1,0 +1,18 @@
+<% for (var i = 0;i<articles.length;i++) { %>
+    <div class="mini-article">
+        <div class="mini-img-wrapper">
+            <a href=""><img src="<%= articles[i].image%>" alt="logo" width="80" height="100"></a>
+        </div>
+
+        <div class="mini-article-text">
+            <a href="">
+                <h4><%=articles[i].title%></h4>
+            </a>
+
+            <p><%=articles[i].description%> </p>
+        </div>
+    </div>
+    
+    <div class="hor-bar"></div>
+    
+<%}%>
